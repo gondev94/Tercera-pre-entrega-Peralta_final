@@ -1,0 +1,11 @@
+{% extends 'cliente/base.html' %}
+
+{% block contenido %}
+    <button>Lista de clientes</button>
+    <ul>
+        {% for object in object_list  %}
+            <p>Dni: {{object.dni}} | Nombre: {{object.nombre}} | Apellido: {{object.apellido}} | E-mail: {{object.email}} </p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cliente:index' %}"><button>Volver</button></a>
+{% endblock contenido %}

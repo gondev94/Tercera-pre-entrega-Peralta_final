@@ -1,5 +1,10 @@
 {% extends 'cliente/base.html' %}
 
 {% block contenido  %}
+<main style="text-align: center;">
     <h1>Bienvenido</h1>
+    <a href="{% url 'cliente:cliente_list' %}"><button>Mostrar Clientes</button></a>
+    <a href="{% url 'cliente:producto_list' %}"><button>Mostrar Productos</button></a>
+    <a href="{% url 'cliente:carrito_list' %}"><button>Mostrar Carrito</button></a>
+</main>
 {% endblock contenido %}

@@ -1,0 +1,11 @@
+{% extends 'cliente/base.html' %}
+
+{% block contenido %}
+    <button>Lista de Productos</button>
+    <ul>
+        {% for object in object_list  %}
+            <p>Producto: {{object.nombre}} | Precio: ${{object.precio}} por unidad</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cliente:index' %}"><button>Volver</button></a>
+{% endblock contenido %}

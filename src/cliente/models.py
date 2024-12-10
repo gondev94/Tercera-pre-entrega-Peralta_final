@@ -36,7 +36,7 @@ class Carrito(models.Model):
         return "El carrito está vacío."
     
     def realizar_compra(self):
-        carrito = self.carritos.all()1
+        carrito = self.carritos.all()
         if not carrito:
             return "El carrito está vacío, no se puede realizar la compra."
 
