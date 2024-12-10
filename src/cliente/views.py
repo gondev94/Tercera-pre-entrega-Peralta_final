@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Cliente, Carrito, Producto
-from .forms import ClienteForm, CarritoForm, ProductoForm
+from .forms import ClienteForm, CarritoForm, ProductoForm, BuscarProductoForm
 
 def index(request):
     return render(request, "cliente/index.html")
 
 def about(request):
     return render(request, "about/index.html")
+
 
 def cliente_list(request):
     query = Cliente.objects.all()
@@ -52,3 +53,18 @@ def producto_create(request):
             form.save()
             return redirect("cliente:producto_list")
     return render(request, "cliente/producto_form.html", {"form" : form})
+
+def buscar_producto(request):
+    form = BuscarProductoForm()
+    resultados = None
+
+    if 'termino' in request.GET:
+        form = BuscarProductoForm(request.GET)
+        if form.is_valid():
+            termino = form.cleaned_data['termino']
+            resultados = Producto.objects.filter(nombre__icontains=termino)
+
+    return render(request, 'cliente/buscar_producto.html', {
+        'form': form,
+        'resultados': resultados,
+    })

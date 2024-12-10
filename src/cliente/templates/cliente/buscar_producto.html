@@ -1,0 +1,24 @@
+{% extends 'cliente/base.html' %}
+
+{% block contenido %}
+<main style="text-align: center;">
+    <h1>Buscar Productos</h1>
+    <form method="get" action="{% url 'cliente:buscar_producto' %}">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultados is not None %}
+        <h2>Resultados:</h2>
+        {% if resultados %}
+            <ul>
+                {% for producto in resultados %}
+                    <li>{{ producto.nombre }} - ${{ producto.precio }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron productos.</p>
+        {% endif %}
+    {% endif %}
+</main>
+{% endblock contenido %}

@@ -19,3 +19,10 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = "__all__"
+        
+class BuscarProductoForm(forms.Form):
+    termino = forms.CharField(
+        label='Buscar Producto',
+        max_length=100,
+        widget=forms.TextInput(attrs={'placeholder': 'Ingrese nombre del producto'})
+    )
