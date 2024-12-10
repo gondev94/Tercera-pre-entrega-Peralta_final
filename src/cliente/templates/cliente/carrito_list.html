@@ -2,10 +2,25 @@
 
 {% block contenido %}
     <button>Lista de compras</button>
-    <ul>
-        {% for object in object_list  %}
-            <p>{{object.cliente}} | Producto: {{object.producto}} | Cantidad: {{object.cantidad}} | Fecha de entrega: {{object.fecha_entrega}} </p>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Fecha de entrega</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object.cliente }}</td>
+                    <td>{{ object.producto }}</td>
+                    <td>{{ object.cantidad }}</td>
+                    <td>{{ object.fecha_entrega }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="{% url 'cliente:index' %}"><button>Volver</button></a>
 {% endblock contenido %}
