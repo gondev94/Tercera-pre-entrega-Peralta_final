@@ -12,9 +12,9 @@ class Cliente(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-   
+    
     def __str__(self):
-        return f"{self.nombre} -  $ {self.precio}"
+        return f"{self.nombre} -  $ {self.precio} - "
 
 class Carrito(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True, related_name="carritos")

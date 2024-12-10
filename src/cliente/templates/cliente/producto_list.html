@@ -2,7 +2,8 @@
 
 {% block contenido %}
     <div class="container">
-        <h2>Lista de Productos</h2>
+        <button>Lista de Productos</button>
+        <a href="{% url 'cliente:producto_create' %}"><button>Crear Producto</button></a>
         <table>
             <thead>
                 <tr>
