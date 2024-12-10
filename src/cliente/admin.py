@@ -12,7 +12,7 @@ class ClienteAdmin(admin.ModelAdmin):
 # Configuración para el modelo Producto
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'precio')  # Mostrar nombre y precio
+    list_display = ('nombre', 'precio')  # Mostrar nombre y precio y cantidad 
     search_fields = ('nombre',)  # Habilitar búsqueda por nombre
     list_filter = ('precio',)  # Filtro por rango de precios
     ordering = ('nombre',)  # Orden alfabético por nombre

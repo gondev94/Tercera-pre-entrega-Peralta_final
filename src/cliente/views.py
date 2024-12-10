@@ -20,7 +20,7 @@ def cliente_create(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("cliente:curso_list")
+            return redirect("cliente:cliente_list")
     return render(request, "cliente/cliente_form.html", {"form" : form})
 
 def carrito_list(request):
@@ -35,7 +35,7 @@ def carrito_create(request):
         form = CarritoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("cliente:cliente_list")
+            return redirect("cliente:carrito_list")
     return render(request, "cliente/carrito_form.html", {"form" : form})
 
 def producto_list(request):
